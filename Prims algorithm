@@ -3,11 +3,8 @@
 # Prim's Minimum Spanning Tree (MST) algorithm.
 # The program is for adjacency matrix 
 # representation of the graph
-
 # Library for INT_MAX
 import sys
-
-
 class Graph():
     def __init__(self, vertices):
         self.V = vertices
@@ -28,19 +25,16 @@ class Graph():
 
         # Initialize min value
         min = sys.maxsize
-
         for v in range(self.V):
             if key[v] < min and mstSet[v] == False:
                 min = key[v]
                 min_index = v
-
         return min_index
 
     # Function to construct and print MST for a graph
     # represented using adjacency matrix representation
     def primMST(self):
-
-        # Key values used to pick minimum weight edge in cut
+ # Key values used to pick minimum weight edge in cut
         key = [sys.maxsize] * self.V
         parent = [None] * self.V  # Array to store constructed MST
         # Make key 0 so that this vertex is picked as first vertex
