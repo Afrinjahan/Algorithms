@@ -1,5 +1,5 @@
-Merge two BSTs with limited extra space
-Last Updated : 31 Mar, 2023
+##Merge two BSTs with limited extra space
+
 Given two Binary Search Trees(BST), print the inorder traversal of merged BSTs. 
 
 Examples:
