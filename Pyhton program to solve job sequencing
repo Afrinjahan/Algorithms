@@ -1,0 +1,38 @@
+## Input: deadline[] = [4, 1, 1, 1], profit[] = [20, 10, 40, 30]
+## Output: 2 60
+
+
+def jobSequencing(deadline, profit):
+    n = len(deadline)
+    
+    # total job count which is done
+    cnt = 0
+    
+    # total profit earned
+    totProfit = 0
+
+    # pair the profit and deadline of
+    # all the jos together and sort it in decreasing order 
+    jobs = sorted(zip(profit, deadline), reverse=True)
+
+    # array to check time slot for job
+    slot = [0] * n
+    for i in range(n):
+        start = min(n, jobs[i][1]) - 1
+        for j in range(start, -1, -1):
+
+            # if slot is empty
+            if slot[j] == 0:
+                slot[j] = 1
+                cnt += 1
+                totProfit += jobs[i][0]
+                break
+    
+    return [cnt, totProfit]
+
+
+if __name__ == "__main__":
+    deadline = [2, 1, 2, 1, 1]
+    profit = [100, 19, 27, 25, 15]
+    ans = jobSequencing(deadline, profit)
+    print(ans[0], ans[1])
